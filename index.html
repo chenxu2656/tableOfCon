@@ -1,0 +1,71 @@
+<!-- 
+  date: 20201102
+  author: xuchen
+ -->
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>sideNav form of content</title>
+ </head>
+ <style>
+   .h1Con{
+     left: 10px;
+     color: aqua;
+   }
+   .h2Con{
+     left: 15px;
+     color: aqua;
+   }
+   .h3Con{
+     left: 20px;
+     color: aqua;
+   }
+   .h4Con{
+     left: 25px;
+     color: aqua;
+   }
+   .h5Con{
+     left: 30px;
+     color: aqua;
+   }
+   .h6Con{
+     left: 35px;
+     color: aqua;
+   }
+ </style>
+ <body>
+   <div class="con">
+
+   </div>
+ </body>
+ <script>
+  //  we divide the pages into three categories." Home page","list page","content page";
+  //  we find that the "comments" components only display in content pages.
+  // so '#comments' could be the flag of cotent pages 
+  let commentsObj = document.querySelector('#comments');
+  let content = document.querySelector('.con');
+  if(commentsObj == null){
+    content.innerHTML = "This component only be used in content pages to show the catalog";
+  }else if(commentsObj){
+    let conObj = document.querySelector('.entry-content').children;
+    // first of all , we need to confirm which is the toplist label.
+    // so we can get all the labels, an sort the array. 
+    let sortArray = new Array();
+    // match the tages with REGEX;
+    let matchTag = /<.*?>/i
+    for(var i in conObj){
+      let stringCon = conObj[i].toString();
+      // let matchResult = stringCon.search(matchTag);
+      // // add to the array
+      // sortArray[i] = matchResult;
+      // console.log(sortArray[i]);
+      console.log(stringCon);
+    }
+    
+  }else{
+    content.innerHTML = "Maybe some error here."
+  }
+ </script>
+ </html>
